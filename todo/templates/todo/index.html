@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon.ico' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-light">
+<div class="container mt-5">
+    <h2 class="text-center"><img src="{% static 'images/icon.ico' %}" style="width: 100px; height: 100px;">ToDo App</h2>
+    <form method="POST" class="my-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Add Task</button>
+    </form>
+
+    <ul class="list-group">
+        {% for task in tasks %}
+        <li class="list-group-item d-flex justify-content-between align-items-center {% if task.completed %}list-group-item-success text-dark{% else %}bg-white text-dark{% endif %}">
+            <div>
+                <div class="d-flex align-items-center gap-2">
+                    <h5 class="mb-0">{{ task.title }}</h5>
+                    <p class="mb-0">{% if task.completed %}Completed<span> ✓</span>{% else %}Incomplete<span> ❌</span>{% endif %}</p>
+                </div>
+                <p>{{ task.description }}</p>
+                <small>Due Date: {{ task.due_date }}</small>
+            </div>
+            <div>
+                <a href="{% url 'toggle_task' task.id %}" class="btn btn-sm btn-warning">{% if task.completed %}Incomplete{% else %}Completed{% endif %}</a>
+                <a href="{% url 'edit_task' task.id %}" class="btn btn-sm btn-info">Edit</a>
+                <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+            </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item">No tasks available.</li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="text-center mt-4">
+    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+    {% csrf_token %}
+        <button type="submit" style="background:none;border:none;color:blue;text-decoration:underline;cursor:pointer;">
+            Logout
+        </button>
+    </form>
+</div>
+
+</body>
+</html>
