@@ -7,27 +7,6 @@ A minimalist and responsive web-based ToDo application built using Django (backe
 
 🔗 [Try it Live on Render](https://todo-list-up2x.onrender.com)
 
-## 📁 Project Structure
-
-
-TodoApp/
-├── todo\_project/         # Django project directory
-│   ├── settings.py       # Django settings
-│   ├── urls.py           # URL routing
-│   └── wsgi.py
-├── todo/                 # Django app for ToDo logic
-│   ├── models.py         # Task model
-│   ├── views.py          # Logic to render/add/delete tasks
-│   ├── forms.py          # Task form
-│   ├── templates/
-│   │   └── todo/
-│   │       ├── index.html
-│   │       └── edit\_todo.html
-├── static/               # Static files (CSS, images)
-├── db.sqlite3            # SQLite database
-└── manage.py             # Django project manager
-
-
 ## ⚙️ Features
 
 - ✅ Add new tasks with title, description, and due date  
