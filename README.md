@@ -65,9 +65,3 @@ Go to `http://127.0.0.1:8000/` in your browser.
 ## 📄 License
 
 This project is open-source and free to use for educational and personal purposes.
-
-Let me know if you want to add:
-- Screenshots section
-- Deployment instructions for Render
-- A GitHub badge or live preview iframe
-
