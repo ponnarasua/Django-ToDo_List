@@ -11,32 +11,6 @@ Install these packages in a virtual environment:
 ```bash
 pip install pywebview
 pip install pyinstaller
-
-
----
-
-## 📁 File Structure
-
-```
-TodoDesktop/
-├── TodoApp.py           # Python file to load the web app
-├── icon.ico             # (Optional) App icon
-├── dist/                # Final .exe output after packaging
-└── build/               # PyInstaller build files
-```
-
----
-
-## 📝 Python Code (TodoApp.py)
-
-```python
-import webview
-
-# Replace with your actual Render URL
-URL = "https://todo-list-up2x.onrender.com"
-
-webview.create_window("ToDo App", URL)
-webview.start()
 ```
 
 ---
@@ -107,8 +81,3 @@ Double-click `TodoApp.exe` to launch the desktop app.
 **Ponnarasu A**
 
 ---
-
-```
-
-Let me know if you want a `README.md` for the **React Native mobile version** or **Nuitka-based secure build** as well.
-```
